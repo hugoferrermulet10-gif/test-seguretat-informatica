@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de seguretat informàtica</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #174ea6;
+        }
+
+        .description {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+        }
+
+        .question h3 {
+            margin-top: 0;
+        }
+
+        .option {
+            display: block;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background-color: #f0f4ff;
+        }
+
+        .correct {
+            background-color: #d4edda !important;
+        }
+
+        .incorrect {
+            background-color: #f8d7da !important;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .check {
+            background-color: #174ea6;
+            color: white;
+        }
+
+        .reset {
+            background-color: #ddd;
+            color: #222;
+        }
+
+        #result {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #e8f0fe;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Test de seguretat informàtica</h1>
+
+    <p class="description">
+        Test de 20 preguntes sobre seguretat informàtica.
+        Selecciona una resposta per pregunta i comprova els resultats.
+    </p>
+
+    <form id="quiz">
+
+        <div class="question" data-answer="b">
+            <h3>1. Per què cal protegir la informació en un sistema informàtic?</h3>
+            <label class="option"><input type="radio" name="q1" value="a"> a) Només per complir amb la normativa legal vigent</label>
+            <label class="option"><input type="radio" name="q1" value="b"> b) Perquè és un actiu valuós que pot patir pèrdues, robatori o modificació no autoritzada</label>
+            <label class="option"><input type="radio" name="q1" value="c"> c) Únicament per evitar que els usuaris facen servir programari no autoritzat</label>
+            <label class="option"><input type="radio" name="q1" value="d"> d) Perquè els sistemes informàtics sempre són insegurs per naturalesa</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>2. Quins són els tres pilars clàssics de la seguretat de la informació?</h3>
+            <label class="option"><input type="radio" name="q2" value="a"> a) Autenticació, autorització i auditoria</label>
+            <label class="option"><input type="radio" name="q2" value="b"> b) Confidencialitat, integritat i disponibilitat</label>
+            <label class="option"><input type="radio" name="q2" value="c"> c) Prevenció, detecció i correcció</label>
+            <label class="option"><input type="radio" name="q2" value="d"> d) Física, lògica i activa</label>
+        </div>
+
+        <div class="question" data-answer="c">
+            <h3>3. La confidencialitat garanteix que:</h3>
+            <label class="option"><input type="radio" name="q3" value="a"> a) La informació estiga sempre disponible quan es necessite</label>
+            <label class="option"><input type="radio" name="q3" value="b"> b) La informació no siga modificada per persones no autoritzades</label>
+            <label class="option"><input type="radio" name="q3" value="c"> c) Només les persones autoritzades puguen accedir a la informació</label>
+            <label class="option"><input type="radio" name="q3" value="d"> d) Es puga demostrar qui ha enviat un missatge</label>
+        </div>
+
+        <div class="question" data-answer="a">
+            <h3>4. La integritat de la informació es refereix a:</h3>
+            <label class="option"><input type="radio" name="q4" value="a"> a) Que la informació siga exacta, completa i no haja estat alterada de manera no autoritzada</label>
+            <label class="option"><input type="radio" name="q4" value="b"> b) Que la informació estiga xifrada en tot moment</label>
+            <label class="option"><input type="radio" name="q4" value="c"> c) Que la informació estiga disponible 24/7</label>
+            <label class="option"><input type="radio" name="q4" value="d"> d) Que la informació només siga accessible des de la xarxa interna</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>5. La disponibilitat implica que:</h3>
+            <label class="option"><input type="radio" name="q5" value="a"> a) La informació només estiga accessible en horari laboral</label>
+            <label class="option"><input type="radio" name="q5" value="b"> b) Els usuaris autoritzats puguen accedir a la informació i als recursos quan els calga</label>
+            <label class="option"><input type="radio" name="q5" value="c"> c) La informació estiga duplicada en tres servidors</label>
+            <label class="option"><input type="radio" name="q5" value="d"> d) La informació no es puga esborrar mai</label>
+        </div>
+
+        <div class="question" data-answer="a">
+            <h3>6. El principi de no repudi significa que:</h3>
+            <label class="option"><input type="radio" name="q6" value="a"> a) L'usuari no pot negar haver realitzat una acció o enviat un missatge</label>
+            <label class="option"><input type="radio" name="q6" value="b"> b) L'usuari pot rebutjar les condicions d'ús del sistema</label>
+            <label class="option"><input type="radio" name="q6" value="c"> c) El sistema no pot rebutjar cap petició d'accés</label>
+            <label class="option"><input type="radio" name="q6" value="d"> d) Cap usuari pot ser expulsat del sistema</label>
+        </div>
+
+        <div class="question" data-answer="a">
+            <h3>7. Quina diferència hi ha entre seguretat física i seguretat lògica?</h3>
+            <label class="option"><input type="radio" name="q7" value="a"> a) La física protegeix el maquinari i les instal·lacions; la lògica protegeix les dades i el programari</label>
+            <label class="option"><input type="radio" name="q7" value="b"> b) La física protegeix les dades; la lògica protegeix els equips</label>
+            <label class="option"><input type="radio" name="q7" value="c"> c) Són sinònims i s'utilitzen indistintament</label>
+            <label class="option"><input type="radio" name="q7" value="d"> d) La física només s'aplica a servidors i la lògica a ordinadors personals</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>8. La seguretat passiva es caracteritza per:</h3>
+            <label class="option"><input type="radio" name="q8" value="a"> a) Actuar abans de produir-se l'incident, prevenint-lo</label>
+            <label class="option"><input type="radio" name="q8" value="b"> b) Detectar i corregir els danys un cop produïda l'amenaça</label>
+            <label class="option"><input type="radio" name="q8" value="c"> c) Xifrar totes les comunicacions de la xarxa</label>
+            <label class="option"><input type="radio" name="q8" value="d"> d) Analitzar les vulnerabilitats del sistema periòdicament</label>
+        </div>
+
+        <div class="question" data-answer="a">
+            <h3>9. La seguretat activa es caracteritza per:</h3>
+            <label class="option"><input type="radio" name="q9" value="a"> a) Tenir com a objectiu evitar o prevenir les amenaces abans que es materialitzen</label>
+            <label class="option"><input type="radio" name="q9" value="b"> b) Actuar només després que s'haja produït un atac</label>
+            <label class="option"><input type="radio" name="q9" value="c"> c) Ser sempre més econòmica que la seguretat passiva</label>
+            <label class="option"><input type="radio" name="q9" value="d"> d) No requerir cap mena de manteniment</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>10. Quins són els tres factors d'autenticació clàssics?</h3>
+            <label class="option"><input type="radio" name="q10" value="a"> a) Usuari, contrasenya i correu electrònic</label>
+            <label class="option"><input type="radio" name="q10" value="b"> b) Una cosa que saps, una cosa que tens i una cosa que tu eres</label>
+            <label class="option"><input type="radio" name="q10" value="c"> c) Xifrat, signatura i hash</label>
+            <label class="option"><input type="radio" name="q10" value="d"> d) Confidencialitat, integritat i disponibilitat</label>
+        </div>
+
+        <div class="question" data-answer="c">
+            <h3>11. Un exemple de factor d'autenticació biomètric seria:</h3>
+            <label class="option"><input type="radio" name="q11" value="a"> a) Una contrasenya</label>
+            <label class="option"><input type="radio" name="q11" value="b"> b) Un token USB</label>
+            <label class="option"><input type="radio" name="q11" value="c"> c) L'empremta dactilar o el reconeixement facial</label>
+            <label class="option"><input type="radio" name="q11" value="d"> d) Un certificat digital emmagatzemat al disc</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>12. Què significa el model AAA en seguretat informàtica?</h3>
+            <label class="option"><input type="radio" name="q12" value="a"> a) Accés, Alerta i Auditoria</label>
+            <label class="option"><input type="radio" name="q12" value="b"> b) Autenticació, Autorització i Auditoria (Accounting)</label>
+            <label class="option"><input type="radio" name="q12" value="c"> c) Antivirus, Antispam i Antimalware</label>
+            <label class="option"><input type="radio" name="q12" value="d"> d) Anàlisi, Avaluació i Acció</label>
+        </div>
+
+        <div class="question" data-answer="a">
+            <h3>13. La comunicació extrem a extrem (end-to-end) implica que:</h3>
+            <label class="option"><input type="radio" name="q13" value="a"> a) Les dades viatgen xifrades entre els dos extrems i només ells les poden desxifrar</label>
+            <label class="option"><input type="radio" name="q13" value="b"> b) Les dades passen sense xifrar per tots els intermediaris</label>
+            <label class="option"><input type="radio" name="q13" value="c"> c) El servidor central desxifra sempre els missatges</label>
+            <label class="option"><input type="radio" name="q13" value="d"> d) Només s'aplica a xarxes locals</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>14. Què és una vulnerabilitat?</h3>
+            <label class="option"><input type="radio" name="q14" value="a"> a) Un programa maliciós que ataca el sistema</label>
+            <label class="option"><input type="radio" name="q14" value="b"> b) Una debilitat o error en el sistema que pot ser explotat per una amenaça</label>
+            <label class="option"><input type="radio" name="q14" value="c"> c) Un atac que ja s'ha produït</label>
+            <label class="option"><input type="radio" name="q14" value="d"> d) Una eina per protegir el sistema</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>15. Què és un exploit?</h3>
+            <label class="option"><input type="radio" name="q15" value="a"> a) Un tipus de contrasenya molt segura</label>
+            <label class="option"><input type="radio" name="q15" value="b"> b) Una tècnica, codi o eina que aprofita una vulnerabilitat per comprometre el sistema</label>
+            <label class="option"><input type="radio" name="q15" value="c"> c) Un mètode de xifrat de dades</label>
+            <label class="option"><input type="radio" name="q15" value="d"> d) Un protocol de comunicació segura</label>
+        </div>
+
+        <div class="question" data-answer="c">
+            <h3>16. Quin d'aquests és un tipus de malware?</h3>
+            <label class="option"><input type="radio" name="q16" value="a"> a) Tallafocs (firewall)</label>
+            <label class="option"><input type="radio" name="q16" value="b"> b) Xifrat AES</label>
+            <label class="option"><input type="radio" name="q16" value="c"> c) Troià (trojan)</label>
+            <label class="option"><input type="radio" name="q16" value="d"> d) VPN</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>17. Un atac de phishing consisteix principalment a:</h3>
+            <label class="option"><input type="radio" name="q17" value="a"> a) Enviar moltes peticions per saturar un servidor</label>
+            <label class="option"><input type="radio" name="q17" value="b"> b) Enganyar l'usuari perquè revele informació confidencial fent-se passar per una entitat de confiança</label>
+            <label class="option"><input type="radio" name="q17" value="c"> c) Xifrar les dades de la víctima i demanar un rescat</label>
+            <label class="option"><input type="radio" name="q17" value="d"> d) Escanejar ports oberts d'una xarxa</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>18. Quin és l'objectiu principal del Reglament General de Protecció de Dades (RGPD)?</h3>
+            <label class="option"><input type="radio" name="q18" value="a"> a) Regular l'ús de programari lliure a les empreses</label>
+            <label class="option"><input type="radio" name="q18" value="b"> b) Protegir les persones físiques pel que fa al tractament de les seues dades personals</label>
+            <label class="option"><input type="radio" name="q18" value="c"> c) Establir les normes tècniques dels sistemes operatius</label>
+            <label class="option"><input type="radio" name="q18" value="d"> d) Regular únicament les transaccions comercials electròniques</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>19. En el context de l'Administració electrònica, què cal garantir principalment?</h3>
+            <label class="option"><input type="radio" name="q19" value="a"> a) Que tots els tràmits es facen presencialment</label>
+            <label class="option"><input type="radio" name="q19" value="b"> b) La identitat dels ciutadans i la integritat i confidencialitat de les seues dades en els tràmits telemàtics</label>
+            <label class="option"><input type="radio" name="q19" value="c"> c) Que els tràmits només es puguen fer amb contrasenya simple</label>
+            <label class="option"><input type="radio" name="q19" value="d"> d) Que no es guarde cap registre dels tràmits realitzats</label>
+        </div>
+
+        <div class="question" data-answer="b">
+            <h3>20. Quina afirmació sobre els tipus d'atacs és correcta?</h3>
+            <label class="option"><input type="radio" name="q20" value="a"> a) Els atacs passius només modifiquen la informació sense llegir-la</label>
+            <label class="option"><input type="radio" name="q20" value="b"> b) Els atacs actius busquen modificar, interrompre o destruir recursos, mentre que els passius solen interceptar o escoltar informació sense alterar-la</label>
+            <label class="option"><input type="radio" name="q20" value="c"> c) Tots els atacs són sempre actius</label>
+            <label class="option"><input type="radio" name="q20" value="d"> d) Els atacs passius sempre deixen traces evidents al sistema</label>
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="check" onclick="corregirTest()">Corregir test</button>
+            <button type="reset" class="reset" onclick="reiniciarTest()">Tornar a començar</button>
+        </div>
+
+    </form>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+function corregirTest() {
+    const preguntes = document.querySelectorAll(".question");
+    let encerts = 0;
+    let contestades = 0;
+
+    preguntes.forEach((pregunta, index) => {
+        const respostaCorrecta = pregunta.dataset.answer;
+        const seleccionada = pregunta.querySelector("input:checked");
+        const opcions = pregunta.querySelectorAll(".option");
+
+        opcions.forEach(opcio => {
+            opcio.classList.remove("correct", "incorrect");
+        });
+
+        if (seleccionada) {
+            contestades++;
+
+            if (seleccionada.value === respostaCorrecta) {
+                encerts++;
+            } else {
+                seleccionada.closest(".option").classList.add("incorrect");
+            }
+        }
+
+        opcions.forEach(opcio => {
+            const input = opcio.querySelector("input");
+
+            if (input.value === respostaCorrecta) {
+                opcio.classList.add("correct");
+            }
+        });
+    });
+
+    const percentatge = Math.round((encerts / preguntes.length) * 100);
+    const resultat = document.getElementById("result");
+
+    resultat.style.display = "block";
+    resultat.innerHTML = `
+        <h2>Resultats del test</h2>
+        <p><strong>Puntuació: ${encerts} de ${preguntes.length}</strong></p>
+        <p>Percentatge d'encerts: ${percentatge}%</p>
+        <p>Preguntes contestades: ${contestades} de ${preguntes.length}</p>
+        <p>Les respostes correctes apareixen en verd i les incorrectes en roig.</p>
+    `;
+
+    resultat.scrollIntoView({ behavior: "smooth" });
+}
+
+function reiniciarTest() {
+    document.querySelectorAll(".option").forEach(opcio => {
+        opcio.classList.remove("correct", "incorrect");
+    });
+
+    const resultat = document.getElementById("result");
+    resultat.style.display = "none";
+    resultat.innerHTML = "";
+}
+</script>
+
+</body>
+</html>
